@@ -1,0 +1,24 @@
+﻿Analysis
+
+
+INPUTS
+* The user will be able to move the mouse and click their answer
+* Also enter and save their name and top 10 scores
+OUTPUTS
+* The user will see two windows: one for score and one for questions and answers
+* If they click the wrong a red “X” will appear in the bottom right corner and they get to choose again up to 3 “X”
+* If they click the right answer a green checkmark will appear in the bottom left and they will continue onto the next question.
+PROCESS
+* Make a country list of 30 countries
+* Make a question list of 3 questions with blanks for the countries
+   * What is the Population of ______?
+   * What is the Currency of ______?
+   * What is the Capital of ______?
+* The code picks a random question from the question list and a random country from the country list and formats them together
+* The code also picks 3 fake answer choices based off the data of other countries
+* The question and answers are displayed to the user and they choose one answer
+   * If correct they will continue to the next question and repeat till they get 10 right
+   * If wrong they are given a strike and three strikes equal game over
+* When the game ends, either after 10 correct answers or game over they will see their leaderboard
+   * If their score is in the top 10 they can save it with their name
+   * If their score is not in the top 10 it will just display the leaderboard with their score

@@ -1,0 +1,17 @@
+% Remember to use the lgrind style
+
+\Head{}
+\File{extractGifInfo.cpp}{2016}{11}{10}{18:52}{510}
+\L{\LB{\K{\#include}_\S{}\3lab.h\3\SE{}}}
+\L{\LB{\K{\#include}_\<\V{iostream}\>}}
+\L{\LB{\K{\#include}_\S{}\3json.hpp\3\SE{}}}
+\L{\LB{\K{\#include}_\<\V{sstream}\>}}
+\index{extractGifInfo}\Proc{extractGifInfo}\L{\LB{\V{GifInfo}_\V{gi};\K{using}_\V{nlohmann::json};_\V{GifInfo}_\V{extractGifInfo}(\V{std::string}_\V{g})}}
+\L{\LB{\{\V{std::string}_\V{s};_\K{auto}_\V{j}_=_\V{json::parse}(\V{g});_\K{for}(\K{auto}_\&\V{e}_\V{:}_\V{j}[\S{}\3data\3\SE{}])}}
+\L{\LB{}\Tab{4}{\{}\Tab{8}{\V{s}_+=_\V{e}[\S{}\3images\3\SE{}][\S{}\3original\3\SE{}][\S{}\3url\3\SE{}];_\V{s}_+=_\S{}\3_\3\SE{};}}
+\L{\LB{}\Tab{8}{\V{s}_+=_\V{e}[\S{}\3images\3\SE{}][\S{}\3original\3\SE{}][\S{}\3width\3\SE{}];_\V{s}_+=_\S{}\3_\3\SE{};}}
+\L{\LB{}\Tab{8}{\V{s}_+=_\V{e}[\S{}\3images\3\SE{}][\S{}\3original\3\SE{}][\S{}\3height\3\SE{}];_\V{s}_+=_\S{}\3_\3\SE{};}}
+\L{\LB{}\Tab{8}{\V{s}_+=_\V{e}[\S{}\3images\3\SE{}][\S{}\3original\3\SE{}][\S{}\3frames\3\SE{}];\}}}
+\L{\LB{}\Tab{4}{\V{std::}_\V{istringstream}_\V{iss}(\V{s});}}
+\L{\LB{}\Tab{4}{\V{iss}_\>\>_\V{gi}.\V{url}_\>\>_\V{gi}.\V{width}_\>\>_\V{gi}.\V{height}_\>\>_\V{gi}.\V{frames};\K{return}_\V{gi};}}
+\L{\LB{\}}}

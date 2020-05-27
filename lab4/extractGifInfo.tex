@@ -1,0 +1,15 @@
+% Remember to use the lgrind style
+
+\Head{}
+\File{extractGifInfo.cpp}{2016}{10}{27}{16:47}{304}
+\L{\LB{\K{\#include}_\<\V{iostream}\>}}
+\index{extractGifInfo}\Proc{extractGifInfo}\L{\LB{\V{std::string}_\V{extractGifInfo}(\V{std::string}_\V{g})}}
+\L{\LB{\{}}
+\L{\LB{}\Tab{4}{\V{std::cout}_\<\<_\V{g}_\<\<_\V{std::endl};}}
+\L{\LB{}\Tab{4}{\V{std::string}_\V{t}_=_\V{g}.\V{substr}(\V{g}.\V{find}(\S{}\3original\3\SE{}),\N{100});}}
+\L{\LB{}\Tab{4}{\V{size\_t}_\V{p1}_=_\V{t}.\V{find}(\S{}\3http\3\SE{});}}
+\L{\LB{}\Tab{4}{\V{std::string}_\V{r}_=_\V{t}.\V{substr}(\V{p1});}}
+\L{\LB{}\Tab{4}{\V{size\_t}_\V{p2}_=_\V{r}.\V{find}(\S{}\3\2\3\3\SE{});}}
+\L{\LB{}\Tab{4}{\V{std::string}_\V{url}_=_\V{t}.\V{substr}(\V{p1},\V{p2});}}
+\L{\LB{}\Tab{4}{\K{return}_\V{url};}}
+\L{\LB{\}}}

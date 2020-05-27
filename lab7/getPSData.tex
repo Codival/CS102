@@ -1,0 +1,21 @@
+% Remember to use the lgrind style
+
+\Head{}
+\File{getPSData.cpp}{2016}{11}{29}{14:43}{373}
+\L{\LB{\C{}//this_function_will_create_and_fill_the_cmds_array_with_all_the_ps\CE{}}}
+\L{\LB{\C{}//commands_needed_to_draw_the_picture_in_fn\CE{}}}
+\L{\LB{\K{\#include}_\S{}\3lab.h\3\SE{}}}
+\L{\LB{\V{PSCmd}*_\V{cmds};}}
+\index{getPSData}\Proc{getPSData}\L{\LB{\K{void}_\V{getPSData}(\V{std::string}_\V{fn})}}
+\L{\LB{\{}}
+\L{\LB{}\Tab{4}{\V{std::ifstream}_\V{ifs}(\V{fn});}}
+\L{\LB{}\Tab{4}{\V{std::string}_\V{s};}}
+\L{\LB{}\Tab{4}{\K{int}_\V{count}_=_\N{0};}}
+\L{\LB{}\Tab{4}{\K{while}(\V{getline}(\V{ifs},\V{s}))}}
+\L{\LB{}\Tab{4}{\{}}
+\L{\LB{}\Tab{8}{\V{count}++;}}
+\L{\LB{}\Tab{4}{\}}}
+\L{\LB{}\Tab{4}{\V{std::cout}_\<\<_\V{count}_\<\<_\V{std::endl};}}
+\L{\LB{}\Tab{4}{\V{cmds}_=_\K{new}_\V{PSCmd}[\V{count}];}}
+\L{\LB{}\Tab{4}{\V{ifs}.\V{close}();}}
+\L{\LB{\}}}

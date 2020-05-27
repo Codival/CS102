@@ -1,0 +1,23 @@
+% Remember to use the lgrind style
+
+\Head{}
+\File{lab.cpp}{2016}{9}{22}{14:53}{359}
+\L{\LB{\K{\#include}_\<\V{iostream}\>}}
+\L{\LB{\K{\#include}_\<\V{iomanip}\>}}
+\L{\LB{\K{\#include}_\S{}\3lab.h\3\SE{}}}
+\L{\LB{\K{using}_\K{namespace}_\V{std};}}
+\index{main}\Proc{main}\L{\LB{\K{int}_\V{main}_()}}
+\L{\LB{\{}}
+\L{\LB{}}
+\L{\LB{}\Tab{4}{\V{make\_window}()\-\!\>\V{show}();}}
+\L{\LB{}\Tab{4}{\V{Fl::run}();}}
+\L{\LB{}\Tab{4}{\K{return}_\N{0};}}
+\L{\LB{\}}}
+\index{f}\Proc{f}\L{\LB{\K{double}_\V{f}(\K{double}_\V{r},_\K{double}_\V{a},_\K{double}_\V{ppy},_\K{double}_\V{n})}}
+\L{\LB{\{}}
+\L{\LB{}\Tab{4}{\K{return}_\V{pmt}(\V{r},\V{a},\V{ppy},\V{n});}}
+\L{\LB{\}}}
+\index{pmt}\Proc{pmt}\L{\LB{\K{double}_\V{pmt}(\K{double}_\V{r},_\K{double}_\V{a},_\K{double}_\V{ppy},_\K{double}_\V{n})}}
+\L{\LB{\{}}
+\L{\LB{}\Tab{4}{\K{return}_((\V{r}/\N{100.0})_*_(\V{a}/\V{ppy}))_/_(\N{1}\-\V{pow}((\V{r}/\N{100.0}/\V{ppy}+\N{1}),\-(\V{ppy}*\V{n})));}}
+\L{\LB{\}}}

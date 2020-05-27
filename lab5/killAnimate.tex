@@ -1,0 +1,24 @@
+% Remember to use the lgrind style
+
+\Head{}
+\File{killAnimate.cpp}{2016}{11}{1}{14:19}{378}
+\L{\LB{\K{\#include}_\S{}\3lab.h\3\SE{}}}
+\L{\LB{}}
+\index{killAnimate}\Proc{killAnimate}\L{\LB{\K{void}_\V{killAnimate}()}}
+\L{\LB{\{}}
+\L{\LB{}\Tab{4}{\V{system}_(\S{}\3ps_\-a_\>_pids\3\SE{});}}
+\L{\LB{}\Tab{4}{\V{std::ifstream}_\V{ifs}(\S{}\3pids\3\SE{});}}
+\L{\LB{}\Tab{4}{\V{std::string}_\V{s};}}
+\L{\LB{}\Tab{4}{\V{std::string}_\V{pid};}}
+\L{\LB{}\Tab{4}{\K{while}(\V{getline}(\V{ifs},\V{s}))}}
+\L{\LB{}\Tab{4}{\{}}
+\L{\LB{}\Tab{8}{\K{if}(\V{s}.\V{find}(\S{}\3animate\3\SE{})_!=_\V{std::string::npos})}}
+\L{\LB{}\Tab{8}{\{}}
+\L{\LB{}\Tab{12}{\K{int}_\V{len}_=_\V{s}.\V{find\_first\_of}(\S{}\3_\3\SE{},\N{1});}}
+\L{\LB{}\Tab{12}{\V{pid}_=_\V{s}.\V{substr}(\N{0},\V{len});}}
+\L{\LB{}\Tab{8}{\}}}
+\L{\LB{}\Tab{4}{\}}}
+\L{\LB{}\Tab{4}{\V{std::cin}.\V{get}();}}
+\L{\LB{}\Tab{4}{\V{std::string}_\V{cmd}_=_\S{}\3kill_\3\SE{}_+_\V{pid};}}
+\L{\LB{}\Tab{4}{\V{system}(\V{cmd}.\V{c\_str}());}}
+\L{\LB{\}}}

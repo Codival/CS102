@@ -1,0 +1,19 @@
+% Remember to use the lgrind style
+
+\Head{}
+\File{main.cpp}{2016}{12}{6}{15:06}{280}
+\L{\LB{\K{\#include}_\S{}\3lab.h\3\SE{}}}
+\index{animate}\Proc{animate}\L{\LB{\K{void}_\V{animate}(\K{void}*)}}
+\L{\LB{\{}}
+\L{\LB{}\Tab{4}{\V{dw}\-\!\>\V{redraw}();}}
+\L{\LB{}\Tab{4}{\V{Fl::add\_timeout}(\N{1.0}/\N{5},\V{animate});}}
+\L{\LB{\}}}
+\index{main}\Proc{main}\L{\LB{\K{int}_\V{main}()}}
+\L{\LB{\{}}
+\L{\LB{}\Tab{4}{\V{getPSData}(\S{}\3drawing.ps\3\SE{});}}
+\L{\LB{}\Tab{4}{\V{parsePSData}(\S{}\3drawing.ps\3\SE{});}}
+\L{\LB{}\Tab{4}{\V{makeDrawWindow}()_\-\!\>_\V{show}();}}
+\L{\LB{}\Tab{4}{\V{dw}\-\!\>\V{set\_draw\_cb}(\V{drawCB});}}
+\L{\LB{}\Tab{4}{\V{Fl::add\_timeout}(\N{1.0},\V{animate});}}
+\L{\LB{}\Tab{4}{\V{Fl::run}();}}
+\L{\LB{\}}}

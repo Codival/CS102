@@ -1,0 +1,27 @@
+% Remember to use the lgrind style
+
+\Head{}
+\File{getGifInfo.cpp}{2016}{11}{10}{18:49}{975}
+\L{\LB{\K{\#include}_\S{}\3lab.h\3\SE{}}}
+\L{\LB{\K{\#include}_\<\V{curl}/\V{curl}.\V{h}\>}}
+\L{\LB{\K{const}_\V{std::string}_\V{url}_=_\S{}\3https://giphy.p.mashape.com\3\SE{};}}
+\L{\LB{\K{const}_\V{std::string}_\V{key}_=}}
+\L{\LB{\S{}\3X\-Mashape\-Key:_N2gdkwRwq8mshigJOyEc4T1ibhjqp16Oc4SjsnPVK3HCrfVhMo\3\SE{};}}
+\L{\LB{\K{const}_\V{std::string}_\V{js}_=_\S{}\3Accept:_application/json\3\SE{};_}}
+\index{handleData}\Proc{handleData}\L{\LB{\V{size\_t}_\V{handleData}(\K{void}*_\V{c},_\V{size\_t}_\V{s},_\V{size\_t}_\V{n},_\K{void}*_\V{g})}}
+\L{\LB{\{*\K{static\_cast}\<\V{std::string}*\>(\V{g})_+=_\K{static\_cast}\<\K{char}*\>(\V{c});\K{return}_\V{s}_*_\V{n};\}}}
+\index{getGifInfo}\Proc{getGifInfo}\L{\LB{\V{std::string}_\V{getGifInfo}(\V{std::string}_\V{s})}}
+\L{\LB{\{\V{std::string}_\V{j};}\Tab{18}{\K{struct}_\V{curl\_slist}_*\V{slist1}_=_\V{NULL};}}
+\L{\LB{}\Tab{4}{\V{slist1}_=_\V{curl\_slist\_append}(\V{slist1},\V{key}.\V{c\_str}());}}
+\L{\LB{}\Tab{4}{\V{slist1}_=_\V{curl\_slist\_append}(\V{slist1},\V{js}.\V{c\_str}());}}
+\L{\LB{}\Tab{4}{\V{std::string}_\V{q}_=_\V{url}_+}}
+\L{\LB{}\Tab{4}{\S{}\3/v1/gifs/search?api\_key=dc6zaTOxFJmzC\&limit=1\&q=\3\SE{}}}
+\L{\LB{}\Tab{5}{+_\V{s};}}
+\L{\LB{}\Tab{4}{\V{CURL}*_\V{hnd}_=_\V{curl\_easy\_init}();}}
+\L{\LB{}\Tab{4}{\V{curl\_easy\_setopt}(\V{hnd},\V{CURLOPT\_URL},\V{q}.\V{c\_str}());}}
+\L{\LB{}\Tab{4}{\V{curl\_easy\_setopt}(\V{hnd},\V{CURLOPT\_HTTPHEADER},\V{slist1});}}
+\L{\LB{}\Tab{4}{\V{curl\_easy\_setopt}(\V{hnd},\V{CURLOPT\_WRITEFUNCTION},\V{handleData});}}
+\L{\LB{}\Tab{4}{\V{curl\_easy\_setopt}(\V{hnd},\V{CURLOPT\_WRITEDATA},\&\V{j});}}
+\L{\LB{}\Tab{4}{\V{curl\_easy\_perform}(\V{hnd});}}
+\L{\LB{}\Tab{4}{\K{while}(\V{j}.\V{back}()_!=_\S{}{'}\}{'}\SE{})_\V{j}.\V{pop\_back}();\K{return}_\V{j};}}
+\L{\LB{\}}}

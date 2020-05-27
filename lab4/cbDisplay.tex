@@ -1,0 +1,17 @@
+% Remember to use the lgrind style
+
+\Head{}
+\File{cbDisplay.cpp}{2016}{10}{27}{15:42}{390}
+\L{\LB{\K{\#include}_\S{}\3lab.h\3\SE{}}}
+\index{cbDisplay}\Proc{cbDisplay}\L{\LB{\K{void}_\V{cbDisplay}(\V{Fl\_Button}*,\K{void}*)}}
+\L{\LB{\{}}
+\L{\LB{}\Tab{4}{\C{}//std::cout_\<\<_r-\!\>value()_\<\<_std::endl;\CE{}}}
+\L{\LB{}\Tab{4}{\V{std::string}_\V{s}_=_\V{r}\-\!\>\V{value}();}}
+\L{\LB{}\Tab{4}{\V{std::string}_\V{j}_=_\V{getGifInfo}(\V{s});}}
+\L{\LB{}\Tab{4}{\V{std::string}_\V{url}_=_\V{extractGifInfo}(\V{j});}}
+\L{\LB{}\Tab{4}{\V{std::string}_\V{cmd}_=_\S{}\3curl_\3\SE{}_+_\V{url}_+\S{}\3_\>_200.gif\3\SE{};}}
+\L{\LB{}\Tab{4}{\V{system}(\V{cmd}.\V{c\_str}());\C{}//c\_str()_extracs_a_C-String_from_C++_String\CE{}}}
+\L{\LB{}\Tab{4}{\V{g}\-\!\>\V{image}(\K{new}_\V{Fl\_GIF\_Image}(\S{}\3200.gif\3\SE{}));}}
+\L{\LB{}\Tab{4}{\V{dw}_\-\!\>_\V{redraw}();}}
+\L{\LB{\}}}
+\L{\LB{}}
