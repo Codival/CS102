@@ -1,3 +1,0 @@
-curl --get --include 'https://giphy.p.mashape.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=gravity+falls' \
-  -H 'X-Mashape-Key: N2gdkwRwq8mshigJOyEc4T1ibhjqp16Oc4SjsnPVK3HCrfVhMo' \
-  -H 'Accept: application/json'
