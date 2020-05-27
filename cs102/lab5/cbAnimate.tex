@@ -1,0 +1,14 @@
+% Remember to use the lgrind style
+
+\Head{}
+\File{cbAnimate.cpp}{2016}{11}{10}{14:54}{189}
+\L{\LB{\K{\#include}_\S{}\3lab.h\3\SE{}}}
+\index{cbAnimate}\Proc{cbAnimate}\L{\LB{\K{void}_\V{cbAnimate}(\K{void}*)}}
+\L{\LB{\{}}
+\L{\LB{}\Tab{4}{\K{static}_\K{int}_\V{x}_=_\N{0};}}
+\L{\LB{}\Tab{4}{\V{g}\-\!\>\V{image}(\V{images}[\V{x}]);}}
+\L{\LB{}\Tab{4}{\V{x}++;}}
+\L{\LB{}\Tab{4}{\K{if}(\V{x}_==_\V{gi}.\V{frames})_\V{x}=\N{0};}}
+\L{\LB{}\Tab{4}{\V{dw}_\-\!\>_\V{redraw}();}}
+\L{\LB{}\Tab{4}{\V{Fl::repeat\_timeout}(\N{1.0}/\N{24},\V{cbAnimate});}}
+\L{\LB{\}}}

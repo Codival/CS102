@@ -1,0 +1,7 @@
+  PID TTY          TIME CMD
+  818 pts/0    00:01:29 geany
+  819 pts/0    00:00:00 gnome-pty-helpe
+ 1425 pts/1    00:00:00 lab
+ 1431 pts/1    00:00:00 animate
+ 1432 pts/1    00:00:00 sh
+ 1433 pts/1    00:00:00 ps

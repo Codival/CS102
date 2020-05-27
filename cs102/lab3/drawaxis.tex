@@ -1,0 +1,14 @@
+% Remember to use the lgrind style
+
+\Head{}
+\File{drawAxis.cpp}{2016}{9}{29}{16:03}{279}
+\L{\LB{\K{\#include}_\S{}\3lab.h\3\SE{}}}
+\index{drawAxis}\Proc{drawAxis}\L{\LB{\K{void}_\V{drawAxis}(\V{cairo\_t}*_\V{cr},\K{int}_\V{unit},\K{int}_\V{tickLength},\K{int}_\V{ticks})}}
+\L{\LB{\{}}
+\L{\LB{}\Tab{4}{\K{int}_\V{x1}_=_\V{unit};_\K{int}_\V{y1}_=_\V{height}\-\V{unit};}}
+\L{\LB{}\Tab{4}{\K{int}_\V{x2}_=_\V{width}\-\V{unit};_\K{int}_\V{y2}_=_\V{height}\-\V{unit};}}
+\L{\LB{}\Tab{4}{\V{cairo\_move\_to}(\V{cr},\V{x1},\V{y1});}}
+\L{\LB{}\Tab{4}{\V{cairo\_line\_to}(\V{cr},\V{x2},\V{y2});}}
+\L{\LB{}\Tab{4}{\V{cairo\_show\_text}(\V{cr},\S{}\31\3\SE{});}}
+\L{\LB{}\Tab{4}{\V{cairo\_stroke}(\V{cr});}}
+\L{\LB{\}}}

@@ -1,0 +1,272 @@
+\documentclass{ffslides}
+\ffpage{25}{1.7777}
+\newrgbcolor{ffgridcolor}{1 0 0}
+\usepackage[nolineno]{lgrind}
+\begin{document}
+\blankpage%
+\dtext{%
+\centering \Large \color{green} cs102 lab 3
+}
+\btext{.435}{.2}{.111}{%
+Specification:
+}
+\btext{.1}{.3}{.2}{%
+The "Payment" refers to the amount of each montly payment}
+\ctext{.2}{.4}{.6}{%
+\[
+    payment = \frac{intRate \times \frac{principal}{payPerYear}}
+     {1 - (\frac{intRate}{payPerYear} + 1)^{- payPerYear \times numYears}}
+\]
+}
+\ctext{.2}{.6}{.6}{%
+For example, the payment for interest rate of .09, principle of 1000, 
+with 12 payments per year, and 5 years for loan.
+\[
+    payment = \frac{.09 \times \frac{1000}{12}}
+     {1 - (\frac{.09}{12} + 1)^{- 12 \times 5}}
+\]
+}
+\blankpage%
+\btext{.45}{.1}{.08}{%
+Analysis:
+}
+\btext{.6}{.45}{.2}{%
+The graph will be drawn using the 2D Cairo graphics.  The 
+graph will be created when the "Calculate" button is pressed.
+}
+\btext{.25}{.6}{.3}{%
+The graph shows the value of the montly payment as we change interest
+rate if the principal is \$1,000, number of years is 5, and the payment
+per year is 12
+}
+\ctext{.1}{.2}{.6}{%
+\input graph
+}
+\blankpage%
+\btext{.455}{.1}{.07}{%
+Design:
+}
+\btext{.05}{.4}{.1}{%
+Clicking the file name will send you straight to its designated 
+implementation page
+}
+\ctext{.2}{.2}{.6}{%
+The program is split into several modules:
+\qi{\hyperlink{labh}{lab.h}}
+\qii{contains all the include files and variables shared amongst
+multiple cpp files}
+\qi{\hyperlink{labgui}{labgui.cpp}}
+\qii{declares all the FLTK Variables for the calculation GUI}
+\qi{\hyperlink{clabgui1}{clabgui1.cpp}}
+\qii{rnd: rounds off the value of the payment into cents}
+\qii{cb\_calculate: programs the "Calculate" button}
+\qi{\hyperlink{clabgui2}{clabgui2.cpp}}
+\qii{the actual code just for the Calculation Window}
+\qi{\hyperlink{labgraph}{labgraph.cpp}}
+\qii{Makes the window for the graph to go in}
+\qi{\hyperlink{cbDrawGraph}{cbDrawGraph.cpp}}
+\qii{Creates the variables for the graph}
+\qii{Calls the functions to:}
+\qiii{Draw X-Axis}
+\qiii{Draw Y-Axis}
+\qiii{Plot the Point}
+}
+
+\blankpage%
+\btext{.43}{.11}{.13}{%
+Design (cont.):
+}
+\btext{.85}{.4}{.1}{%
+Clicking the file name will send you straight to its designated 
+implementation page
+}
+\ctext{.2}{.2}{.6}{%
+\qi{\hyperlink{drawXAxis}{drawXAxis.cpp}}
+\qii{Draws the X-Axis, with ticks and labels}
+\qi{\hyperlink{drawYAxis}{drawYAxis.cpp}}
+\qii{Draws the Y-Axis, with ticks and labels}
+\qi{\hyperlink{plotPoint}{plotPoint.cpp}}
+\qii{Places a circle at the values of (interest rate,payment value)}
+\qi{\hyperlink{lab}{lab.cpp}}
+\qii{main: Makes the main window and then contorl is move to FLTK}
+\qii{f: Calls pmt with user values for principal, payments per year,
+ interest rate, and number of years.}
+\qii{pmt: Uses the formula to calculate and display the payment}
+}
+
+\blankpage%
+\makesection[labh]{labh}
+\btext{.4}{.1}{.2}{%
+Implementation lab.h
+}
+\btext{.01}{.2}{.15}{%
+List of all Variables and functions
+}
+\ctext{.2}{.13}{.6}{%
+\lgrindfile{labheader}
+}
+
+\blankpage%
+\makesection[labgui]{labgui}
+\btext{.37}{.1}{.22}{%
+Implementation labgui.cpp
+}
+\btext{.01}{.3}{.15}{%
+Declarations of all FLTK variables
+}
+\ctext{.2}{.2}{.6}{%
+\lgrindfile{labgui}
+}
+\blankpage%
+\makesection[clabgui1]{clabgui1}
+\btext{.37}{.1}{.25}{%
+Implementation clabgui1.cpp
+}
+\btext{.4}{.32}{.45}{%
+Rounding works by: \newline
+\qi{1) Multiplying by 100}
+\qi{2) Rounding the number to the nearest whole integer}
+\qi{3) Dividing by 100 to return to dollars and cents}
+}
+\btext{.2}{.85}{.6}{%
+p's value is composition of the "rnd" function of the "f" function of the 
+values of r, p, ppy, and n.
+}
+\ctext{.2}{.2}{.6}{%
+\lgrindfile{clabgui1}
+}
+
+\blankpage%
+\makesection[clabgui2]{clabgui2}
+\btext{.37}{.1}{.25}{%
+Implementation clabgui2.cpp
+}
+\btext{.01}{.3}{.15}{%
+The Make Window Function on its own in it's entirety
+}
+\btext{.75}{.3}{.2}{%
+The name of a cairo text box is repective to the variable that the 
+input is saved to.
+}
+\ctext{.2}{.2}{.6}{%
+\lgrindfile{clabgui2}
+}
+
+\blankpage%
+\makesection[labgraph]{labgraph}
+\btext{.37}{.1}{.25}{%
+Implementation labgraph.cpp
+}
+\btext{.05}{.3}{.07}{%
+Makes a window called "cg" for the graph
+}
+\ctext{.2}{.2}{.6}{%
+\lgrindfile{labgraph}
+}
+
+\blankpage%
+\makesection[cbDrawGraph]{cbDrawGraph}
+\btext{.35}{.1}{.3}{%
+Implementation cbDrawGraph.cpp
+}
+\ctext{.2}{.15}{.6}{%
+\lgrindfile{labdrawgraph}
+}
+\btext{.1}{.6}{.8}{%
+\input xAxis
+}
+\btext{.7}{.5}{.2}{
+Diagram shows length of each variable made in this file
+}
+
+\blankpage%
+\makesection[drawXAxis]{drawXAxis}
+\btext{.35}{.1}{.3}{%
+Implementation drawXAxis.cpp
+}
+\btext{.4}{.4}{.2}{%
+Creates a straight line to represent the X-Axis
+}
+\btext{.61}{.62}{.2}{%
+"i" increments by 2 so the scale of the X-Axis will be 2 per tick
+}
+\ctext{.2}{.15}{.6}{%
+\lgrindfile{drawXaxis}
+}
+
+\blankpage%
+\makesection[drawYAxis]{drawYAxis}
+\btext{.35}{.1}{.3}{%
+Implementation drawYAxis.cpp
+}
+\btext{.4}{.4}{.2}{%
+Creates a vertical line for the Y-Axis
+}
+\btext{.61}{.62}{.2}{%
+Creates ticks in the same way as the X-Axis but now it increments by
+5 so to increase the range of the graph
+}
+\ctext{.2}{.15}{.6}{%
+\lgrindfile{drawYaxis}
+}
+
+\blankpage%
+\makesection[plotPoint]{plotPoint}
+\btext{.35}{.1}{.3}{%
+Implementation plotPoint.cpp
+}
+\ctext{.2}{.15}{.6}{%
+\lgrindfile{plotPoint}
+}
+\btext{.6}{.5}{.3}{%
+Draws a circle at the point (r value,p value) from the "pmt" function
+}
+
+\blankpage%
+\makesection[lab]{lab}
+\btext{.4}{.1}{.2}{%
+Implementation lab.cpp
+}
+\ctext{.55}{.65}{.6}{%
+\[
+    payment = \frac{r \times \frac{a}{ppy}}
+     {1 - (\frac{r}{ppy} + 1)^{- ppy \times n}}
+\]
+}
+\btext{.65}{.2}{.3}{%
+The function "PMT" uses 4 double variables. a=principle,r=interest rate, 
+ppy=payments per year, n=number of years. Then it inputs each variable
+into the monthly payment equation returning the payment value.
+}
+\ctext{.2}{.15}{.6}{%
+\lgrindfile{labsource}
+}
+
+
+
+\blankpage%
+\btext{.47}{.1}{.04}{%
+Test
+}
+\ctext{.2}{.2}{.6}{%
+\qi{User can enter any data they desire}
+\qi{If user enters principal of \$1,000, interest rate of 5\%,
+payments per year is 12, and number of years is 5 and its point on
+the graph is:}
+\qi{If user enters principal of \$1,000, interest rate of 12\%,
+payments per year is 6, and number of years is 10 and its point on
+the graph is:}
+}
+\btext{.01}{.4}{.15}{%
+The figures show the functions ability to graph any point between (0,0)
+to (16,40)
+}
+\putfig{.6}{.4}{.37}{test1}
+\putfig{.2}{.4}{.37}{test}
+
+
+
+
+\blankpage%
+
+\end{document}

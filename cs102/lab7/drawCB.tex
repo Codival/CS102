@@ -1,0 +1,27 @@
+% Remember to use the lgrind style
+
+\Head{}
+\File{drawCB.cpp}{2016}{12}{8}{21:45}{933}
+\L{\LB{\K{\#include}_\S{}\3lab.h\3\SE{}}}
+\index{f}\Proc{f}\L{\LB{\K{double}_\V{f}(\K{double}_\V{x})\{\K{return}_\V{x}+\N{20}*\V{sin}(\V{x});\}}}
+\index{drawCB}\Proc{drawCB}\L{\LB{\K{void}_\V{drawCB}(\V{Fl\_Cairo\_Window}*_\V{cw},\V{cairo\_t}*_\V{cr})}}
+\L{\LB{\{\K{static}_\K{double}_\V{dx}_=_\N{0};_\K{static}_\K{double}_\V{dy}_=_\N{0};_\K{static}_\K{double}_\V{dr}_=_\N{0};}}
+\L{\LB{}\Tab{4}{\K{for}(\K{int}_\V{i}_=_\N{0};_\V{i}_\<_\V{N};_\V{i}++)\{}}
+\L{\LB{}\Tab{4}{\K{if}(\V{cmds}[\V{i}].\V{cmd}_==_\S{}\3moveto\3\SE{})}}
+\L{\LB{}\Tab{7}{\V{cairo\_move\_to}(\V{cr},\V{cmds}[\V{i}].\V{x},\V{height}\-\V{cmds}[\V{i}].\V{y});}}
+\L{\LB{}\Tab{4}{\K{if}(\V{cmds}[\V{i}].\V{cmd}_==_\S{}\3lineto\3\SE{})}}
+\L{\LB{}\Tab{7}{\V{cairo\_line\_to}(\V{cr},\V{cmds}[\V{i}].\V{x},\V{height}\-\V{cmds}[\V{i}].\V{y});}}
+\L{\LB{}\Tab{4}{\K{if}(\V{cmds}[\V{i}].\V{cmd}_==_\S{}\3arc\3\SE{})}}
+\L{\LB{}\Tab{8}{\V{cairo\_arc}(\V{cr},\V{cmds}[\V{i}].\V{x},\V{height}\-\V{cmds}[\V{i}].\V{y},\V{cmds}[\V{i}].\V{radius}}}
+\L{\LB{}\Tab{8}{,\V{cmds}[\V{i}].\V{angleStart}*(\V{M\_PI}/\N{180}),\V{cmds}[\V{i}].\V{angleEnd}*(\V{M\_PI}/\N{180}));}}
+\L{\LB{}\Tab{4}{\K{if}(\V{cmds}[\V{i}].\V{cmd}_==_\S{}\3translate\3\SE{})}}
+\L{\LB{}\Tab{7}{\V{cairo\_translate}(\V{cr},\V{dx}_+_\V{cmds}[\V{i}].\V{x},\-(\V{f}(\V{dx}+\V{cmds}[\V{i}].\V{x})));}}
+\L{\LB{}\Tab{4}{\K{if}(\V{cmds}[\V{i}].\V{cmd}_==_\S{}\3scale\3\SE{})}}
+\L{\LB{}\Tab{8}{\V{cairo\_scale}(\V{cr},\V{cmds}[\V{i}].\V{x},\V{cmds}[\V{i}].\V{y});}}
+\L{\LB{}\Tab{4}{\K{if}(\V{cmds}[\V{i}].\V{cmd}_==_\S{}\3rotate\3\SE{})}}
+\L{\LB{}\Tab{8}{\{\V{cairo\_translate}(\V{cr},\N{0},\V{height});}}
+\L{\LB{}\Tab{12}{\V{cairo\_rotate}(\V{cr},\V{dr}_+_\V{cmds}[\V{i}].\V{angle1}*(\V{M\_PI}/\N{180}));}}
+\L{\LB{}\Tab{12}{\V{cairo\_translate}(\V{cr},\N{0},\-\V{height});\}\}}}
+\L{\LB{}\Tab{3}{\V{dx}+=\N{5};_\K{if}(\V{dx}\>\V{width}\-\N{20})_\V{dx}=\-\N{40};_\V{dy}+=\N{5};_\K{if}(\V{dy}\>\V{height})_\V{dy}=\N{40};}}
+\L{\LB{}\Tab{3}{\V{dr}+=.\N{1};_\V{cairo\_stroke}(\V{cr});}}
+\L{\LB{\}}}

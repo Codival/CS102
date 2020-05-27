@@ -1,0 +1,20 @@
+% Remember to use the lgrind style
+
+\Head{}
+\File{makeSearchWindow.cpp}{2016}{11}{1}{14:19}{504}
+\L{\LB{\K{\#include}_\S{}\3lab.h\3\SE{}}}
+\L{\LB{\V{Fl\_Cairo\_Window}_*_\V{cw};}}
+\L{\LB{\V{Fl\_Input}_*_\V{r};}}
+\L{\LB{\V{Fl\_Button}_*_\V{b};}}
+\L{\LB{}}
+\index{makeSearchWindow}\Proc{makeSearchWindow}\L{\LB{\V{Fl\_Cairo\_Window}_*_\V{makeSearchWindow}()\{}}
+\L{\LB{}\Tab{4}{\V{cw}_=_\K{new}_\V{Fl\_Cairo\_Window}(\V{width},\V{height});}}
+\L{\LB{}\Tab{4}{\V{cw}\-\!\>\V{label}(\S{}\3Search_For_A_Gif\3\SE{});}}
+\L{\LB{}\Tab{4}{\V{cw}\-\!\>\V{color}(\V{fl\_rgb\_color}(\N{74},\N{189},\N{172}));}}
+\L{\LB{}\Tab{4}{\V{r}_=_\K{new}_\V{Fl\_Input}(.\N{5}*\V{width},.\N{25}*\V{height},.\N{25}*\V{width},.\N{1}*\V{height});}}
+\L{\LB{}\Tab{4}{\V{r}\-\!\>\V{label}(\S{}\3Keyword:_\3\SE{});}}
+\L{\LB{}\Tab{4}{\V{b}_=_\K{new}_\V{Fl\_Button}(.\N{5}*\V{width},.\N{5}*\V{height},.\N{25}*\V{width},.\N{1}*\V{height});}}
+\L{\LB{}\Tab{4}{\V{b}\-\!\>\V{label}(\S{}\3Display\3\SE{});}}
+\L{\LB{}\Tab{4}{\V{b}\-\!\>\V{color}(\V{fl\_rgb\_color}(\N{247},\N{183},\N{51}));}}
+\L{\LB{}\Tab{4}{\V{b}\-\!\>\V{callback}((\V{Fl\_Callback}*)_\V{cbDisplay});}}
+\L{\LB{}\Tab{4}{\K{return}_\V{cw};\}}}
